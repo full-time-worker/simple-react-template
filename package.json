@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "A react template forked from https://github.com/dasmikko/simple-react-template",
   "repository": "https://github.com/networkinss/simple-react-template",
-  "homepage": "https://github.com/networkinss/networkinss.github.io/simple-react-template/",
+  "homepage": "https://networkinss.github.io/simple-react-template/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
