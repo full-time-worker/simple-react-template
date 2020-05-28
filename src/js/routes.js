@@ -10,6 +10,7 @@ import PageLayout from './layouts/PageLayout';
 
 // Pages
 import PageHome from './pages/Home';
+import Login from './pages/Login'
 
 
 class Routes extends Component {
@@ -17,6 +18,7 @@ class Routes extends Component {
         return (
             <PageLayout>
                 <Route exact={true} path="/" component={PageHome} />
+                <Route path="/login" component={Login} />
             </PageLayout>
         )
     }

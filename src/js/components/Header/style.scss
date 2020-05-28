@@ -1,0 +1,17 @@
+$logoColor: #CA1F7B;
+$whitColor: #fff;
+
+.btnColor {
+   color: $whitColor;
+   background-color: $logoColor;
+}
+
+.nav-item {
+   font-size: 20px;
+   font-weight: bold;
+   margin: 0 15px;
+   .radius {
+      border-radius: 20px;
+      font-weight: bold;
+   }
+}

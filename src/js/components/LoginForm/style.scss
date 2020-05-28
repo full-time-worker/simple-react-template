@@ -1,0 +1,22 @@
+$logoColor: #CA1F7B;
+$whitColor: #fff;
+
+.btnColor1 {
+   background-color: $logoColor;
+   color: $whitColor;
+   border: 1px solid $logoColor;
+   &:hover{
+      color: $logoColor;
+      background-color: $whitColor;
+      border: 1px solid $logoColor;
+   }
+}
+
+.btnColor2 {
+   color: $logoColor;
+   background-color: $whitColor;
+   &:hover{
+      color: $whitColor;
+      background-color: $logoColor;
+   }
+}
