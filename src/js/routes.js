@@ -10,7 +10,8 @@ import PageLayout from './layouts/PageLayout';
 
 // Pages
 import PageHome from './pages/Home';
-import Login from './pages/Login'
+import Login from './pages/Login';
+import Registration from './pages/Registration'
 
 
 class Routes extends Component {
@@ -19,6 +20,7 @@ class Routes extends Component {
             <PageLayout>
                 <Route exact={true} path="/" component={PageHome} />
                 <Route path="/login" component={Login} />
+                <Route path="/registration" component={Registration} />
             </PageLayout>
         )
     }
