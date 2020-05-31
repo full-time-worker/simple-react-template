@@ -1,14 +1,26 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import './style.scss'
+
+import { login } from '../../actions/authActions'
 
 class Form extends Component {
 
    state = {
-      name: '',
+      username: '',
       password: '',
       error: {}
+   }
+
+   static getDerivedStateFromProps(nextProps, prevState) {
+      if(JSON.stringify(nextProps.auth.error) !== JSON.stringify(prevState.error)) {
+        return{
+          error: nextProps.auth.error,
+        }
+      }
+      return null
    }
 
    changeHandler = event => {
@@ -17,20 +29,27 @@ class Form extends Component {
       })
    }
 
+   submitHandler = event => {
+      event.preventDefault()
+
+      let { username, password } = this.state
+      this.props.login({username, password}, this.props.history)
+   }
+
    render() {
-      let { name, password } = this.state
+      let { username, password } = this.state
 
       return (
          <div className="container py-md-5">
          <h4 className="font-weight-bold mb-4">Sign In</h4>
          <form>
                <div className="py-2">
-               <label htmlFor="name" className="text-muted">User name</label>
+               <label htmlFor="username" className="text-muted">User name</label>
                <input 
                   type="text" 
-                  name="name" 
-                  id="name"
-                  value={name}
+                  name="username" 
+                  id="username"
+                  value={username}
                   onChange={this.changeHandler}
                   className="form-control"
                   placeholder="Enter user name" 
@@ -57,6 +76,7 @@ class Form extends Component {
                <button 
                   type="button" 
                   className="btn btnColor1 font-weight-bold mr-2 px-lg-4 my-1"
+                  onClick={this.submitHandler}
                >Sign In</button>
                <a 
                   type="button" 
@@ -70,4 +90,8 @@ class Form extends Component {
    }
 }
 
-export default Form;
+const mapStateToProps = state => ({
+   auth: state.auth
+})
+
+export default connect(mapStateToProps, {login})(Form);

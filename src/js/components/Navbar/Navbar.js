@@ -13,7 +13,7 @@ class Navbar extends Component {
 
     componentDidMount(){
         let { pathname } = window.location
-        if(pathname == '/home') {
+        if(pathname == '/') {
             this.setState(prev => ({
                 home: true
             }))
@@ -49,7 +49,7 @@ class Navbar extends Component {
                <div className="collapse navbar-collapse" id="navbarNav">
                      <ul className="navbar-nav ml-auto">
                         <li className={home ? "nav-item active" : "nav-item"}>
-                        <a className="nav-link" href="/home">Home</a>
+                        <a className="nav-link" href="/">Home</a>
                         </li>
                         <li className={userWorkArea ? "nav-item active" : "nav-item"}>
                         <a className="nav-link" href="/user-work-area">User work area</a>

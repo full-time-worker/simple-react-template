@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import './style.scss'
-import Form from '../../components/RegistrationForm'
+import './style.scss';
+import Form from '../../components/RegistrationForm';
 
 class Registration extends Component {
 
