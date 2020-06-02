@@ -7,6 +7,7 @@ class Navbar extends Component {
         userWorkArea: false,
         setting: false,
         administration: false,
+        isAuthenticated: false,
         imageUrl: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         logoUrl: 'https://www.pngarts.com/files/3/Jaguar-Logo-PNG-Download-Image.png'
     }
@@ -15,22 +16,30 @@ class Navbar extends Component {
         let { pathname } = window.location
         if(pathname == '/') {
             this.setState(prev => ({
-                home: true
+                home: true,
+                isAuthenticated: true
             }))
         }else if(pathname == '/user-work-area') {
             this.setState(prev => ({
-                userWorkArea: true
+                userWorkArea: true,
+                isAuthenticated: true
             }))
         }else if(pathname == '/setting') {
             this.setState(prev => ({
-                setting: true
+                setting: true,
+                isAuthenticated: true
             }))
         }else if(pathname == '/administration') {
             this.setState(prev => ({
-                administration: true
+                administration: true,
+                isAuthenticated: true
             }))
         }
         
+    }
+
+    clickHandler = event => {
+      this.setState(prev => ({ isAuthenticated: false}))
     }
 
     render() {
@@ -40,7 +49,7 @@ class Navbar extends Component {
       return (
          <div className="">
             <nav className="navbar container-fluid navbar-expand-lg navbar-light px-5 py-3">
-               <a class="navbar-brand" href="#">
+               <a class="navbar-brand" href="/">
                      <img src={logoUrl} width="110" height="50" alt="Logo"/>
                </a>
                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +69,7 @@ class Navbar extends Component {
                         <li className={administration ? "nav-item active" : "nav-item"}>
                         <a className="nav-link" href="/administration">Administration</a>
                         </li>
-                        { this.props.isAuthenticated ? 
+                        { this.state.isAuthenticated ? 
                            <li className="nav-item">
                               <div class="dropdown">
                                  <span class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,8 +82,8 @@ class Navbar extends Component {
                                     />
                                  </span>
                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Logout</a>
-                                    <a class="dropdown-item" href="#">Reset Yaml</a>
+                                    <h6 class="dropdown-item btn" onClick={this.clickHandler}>Logout</h6>
+                                    <h6 class="dropdown-item btn">Reset Yaml</h6>
                                  </div>
                               </div>
                            </li> : 

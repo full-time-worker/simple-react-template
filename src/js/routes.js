@@ -12,6 +12,9 @@ import PageLayout from './layouts/PageLayout';
 import PageHome from './pages/Home';
 import Login from './pages/Login';
 import Registration from './pages/Registration'
+import PageSetting from './pages/Setting';
+import PageAdministration from './pages/Administration';
+import UserWorkArea from './pages/UserWorkArea';
 
 
 class Routes extends Component {
@@ -24,6 +27,9 @@ class Routes extends Component {
                 <Route exact={true} path="/" component={PageHome} />
                 <Route path="/login" component={Login} />
                 <Route path="/registration" component={Registration} />
+                <Route path="/setting" component={PageSetting} />
+                <Route path="/administration" component={PageAdministration} />
+                <Route path="/user-work-area" component={UserWorkArea} />
                 {/* </Switch> */}
             </PageLayout>
             
